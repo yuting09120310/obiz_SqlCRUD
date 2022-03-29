@@ -13,10 +13,25 @@ namespace obiz_SqlCRUD
 {
     public partial class Form2 : Form
     {
-
+        DataGridView Dgv;
         public Form2()
         {
             InitializeComponent();
+        }
+
+        public Form2(DataGridView dgv)
+        {
+            InitializeComponent();
+
+            this.Dgv = dgv;
+        }
+
+        public void Dgv_load(DataGridView dgv)
+        {
+            string SearchQuery = "select * from StudentInfo";
+            DataTable Dt = SqlCRUD.SqlTable(SearchQuery);
+
+            dgv.DataSource = Dt;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,8 +40,9 @@ namespace obiz_SqlCRUD
             {
                 string Sql_Inset = $"Insert into StudentInfo (Name,StuId,Phone,Address) VALUES ('{Tb_Name.Text}' , '{Tb_StuId.Text}' , '{Tb_Phone.Text}' , '{Tb_Address.Text}')";
                 new SqlCRUD(Sql_Inset);
-                //Clear();
+                Clear();
             }
+            Dgv_load(Dgv);
         }
 
         private void Clear()

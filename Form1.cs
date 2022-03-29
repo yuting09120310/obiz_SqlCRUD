@@ -14,6 +14,7 @@ namespace obiz_SqlCRUD
     public partial class Form1 : Form
     {
         DataTable Dt;
+        SchoolEntities db = new SchoolEntities();
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace obiz_SqlCRUD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
+            Form2 form = new Form2(dataGridView1);
             form.Show();
         }
 
@@ -64,6 +65,20 @@ namespace obiz_SqlCRUD
             Dt = SqlCRUD.SqlTable(SearchQuery);
 
             dataGridView1.DataSource = Dt;
+        }
+
+        private void Btn_Del_Click(object sender, EventArgs e)
+        {
+            if(Tb_num.Text.Length != 0)
+            {
+                string Select_Query = $"select * from StudentInfo where id = {Tb_num.Text}";
+                DataTable dt = SqlCRUD.SqlTable(Select_Query);
+                if(dt.Rows.Count > 0)
+                {
+                    string Update_Query = $"UPDATE  StudentInfo SET Name={Tb_Name.Text},StuID={Tb_Search.Text},Phone={Tb_Phone.Text},Address={Tb_Address.Text} where Id = {Tb_num.Text}";
+                    new SqlCRUD(Update_Query);
+                }
+            }
         }
     }
 }
