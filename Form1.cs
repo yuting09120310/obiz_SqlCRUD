@@ -75,8 +75,24 @@ namespace obiz_SqlCRUD
                 DataTable dt = SqlCRUD.SqlTable(Select_Query);
                 if(dt.Rows.Count > 0)
                 {
+                    string Update_Query = $"Delete StudentInfo where Id = {Tb_num.Text}";
+                    new SqlCRUD(Update_Query);
+                    Dgv_load();
+                }
+            }
+        }
+
+        private void Btn_Edit_Click(object sender, EventArgs e)
+        {
+            if (Tb_num.Text.Length != 0)
+            {
+                string Select_Query = $"select * from StudentInfo where id = {Tb_num.Text}";
+                DataTable dt = SqlCRUD.SqlTable(Select_Query);
+                if (dt.Rows.Count > 0)
+                {
                     string Update_Query = $"UPDATE  StudentInfo SET Name={Tb_Name.Text},StuID={Tb_Search.Text},Phone={Tb_Phone.Text},Address={Tb_Address.Text} where Id = {Tb_num.Text}";
                     new SqlCRUD(Update_Query);
+                    Dgv_load();
                 }
             }
         }

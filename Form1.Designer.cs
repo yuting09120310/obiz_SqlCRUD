@@ -189,6 +189,7 @@
             this.Btn_Edit.TabIndex = 9;
             this.Btn_Edit.Text = "修改";
             this.Btn_Edit.UseVisualStyleBackColor = true;
+            this.Btn_Edit.Click += new System.EventHandler(this.Btn_Edit_Click);
             // 
             // tabPage1
             // 
