@@ -21,6 +21,7 @@ namespace obiz_SqlCRUD
             setup();
         }
 
+        //初次設定
         public void setup()
         {
             String[] items = new String[] {"Name", "StuId","Phone","Address" };
@@ -34,12 +35,14 @@ namespace obiz_SqlCRUD
             Dgv_load();
         }
 
+        //按下新增後
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2(dataGridView1);
             form.Show();
         }
 
+        //搜尋
         private void Tb_Search_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -59,6 +62,7 @@ namespace obiz_SqlCRUD
             }
         }
 
+        //重新整理
         public void Dgv_load()
         {
             string SearchQuery = "select * from StudentInfo";
@@ -67,6 +71,7 @@ namespace obiz_SqlCRUD
             dataGridView1.DataSource = Dt;
         }
 
+        //刪除事件
         private void Btn_Del_Click(object sender, EventArgs e)
         {
             if(Tb_num.Text.Length != 0)
@@ -81,7 +86,7 @@ namespace obiz_SqlCRUD
                 }
             }
         }
-
+        //編輯
         private void Btn_Edit_Click(object sender, EventArgs e)
         {
             if (Tb_num.Text.Length != 0)
