@@ -8,12 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using obiz_load_data;
 
 namespace obiz_SqlCRUD
 {
     public partial class Form2 : Form
     {
         DataGridView Dgv;
+        Msg_log msg_Log = new Msg_log();
+        string AppName = "Obiz_SqlCRUD";
+
         public Form2()
         {
             InitializeComponent();
@@ -28,46 +32,74 @@ namespace obiz_SqlCRUD
 
         public void Dgv_load(DataGridView dgv)
         {
-            string SearchQuery = "select * from StudentInfo";
-            DataTable Dt = SqlCRUD.SqlTable(SearchQuery);
+            try
+            {
+                string SearchQuery = "select * from StudentInfo";
+                DataTable Dt = SqlCRUD.SqlTable(SearchQuery);
 
-            dgv.DataSource = Dt;
+                dgv.DataSource = Dt;
+            }
+            catch(Exception ex)
+            {
+                msg_Log.save_log(AppName, ex);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Check() == true)
+            try
             {
-                string Sql_Inset = $"Insert into StudentInfo (Name,StuId,Phone,Address) VALUES ('{Tb_Name.Text}' , '{Tb_StuId.Text}' , '{Tb_Phone.Text}' , '{Tb_Address.Text}')";
-                new SqlCRUD(Sql_Inset);
-                Clear();
+                if (Check() == true)
+                {
+                    string Sql_Inset = $"Insert into StudentInfo (Name,StuId,Phone,Address) VALUES ('{Tb_Name.Text}' , '{Tb_StuId.Text}' , '{Tb_Phone.Text}' , '{Tb_Address.Text}')";
+                    new SqlCRUD(Sql_Inset);
+                    Clear();
+                }
+                Dgv_load(Dgv);
+            }catch(Exception ex)
+            {
+                msg_Log.save_log(AppName, ex);
             }
-            Dgv_load(Dgv);
         }
 
         private void Clear()
         {
-            foreach (Control c in this.Controls)
+            try
             {
-                if (c.Name.Contains("Tb"))
+                foreach (Control c in this.Controls)
                 {
-                    c.Text = "";
+                    if (c.Name.Contains("Tb"))
+                    {
+                        c.Text = "";
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                msg_Log.save_log(AppName, ex);
             }
         }
 
         private bool Check()
         {
-            foreach(Control c in this.Controls)
+            try
             {
-                if (c.Name.Contains("Tb"))
+                foreach (Control c in this.Controls)
                 {
-                    if(c.Text.Length == 0)
+                    if (c.Name.Contains("Tb"))
                     {
-                        MessageBox.Show($"{c.Name} 沒填入");
-                        return false;
+                        if (c.Text.Length == 0)
+                        {
+                            MessageBox.Show($"{c.Name} 沒填入");
+                            return false;
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                msg_Log.save_log(AppName, ex);
             }
             return true;
         }
