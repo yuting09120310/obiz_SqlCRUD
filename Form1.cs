@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Assembly;
-using obiz_load_data; 
+using Alex_Component; 
 
 namespace obiz_SqlCRUD
 {
