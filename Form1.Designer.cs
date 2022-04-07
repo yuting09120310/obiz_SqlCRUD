@@ -30,27 +30,27 @@
         {
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Tb_num = new System.Windows.Forms.TextBox();
+            this.txtNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Btn_Del = new System.Windows.Forms.Button();
-            this.Tb_Address = new System.Windows.Forms.TextBox();
-            this.Tb_Phone = new System.Windows.Forms.TextBox();
-            this.Tb_StuId = new System.Windows.Forms.TextBox();
-            this.Tb_Name = new System.Windows.Forms.TextBox();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtStuId = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Btn_Edit = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Cb_Type = new System.Windows.Forms.ComboBox();
-            this.Tb_Search = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.chkType = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dgResults = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgResults)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,18 +61,18 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.Tb_num);
+            this.tabPage2.Controls.Add(this.txtNum);
             this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.Btn_Del);
-            this.tabPage2.Controls.Add(this.Tb_Address);
-            this.tabPage2.Controls.Add(this.Tb_Phone);
-            this.tabPage2.Controls.Add(this.Tb_StuId);
-            this.tabPage2.Controls.Add(this.Tb_Name);
+            this.tabPage2.Controls.Add(this.btnDel);
+            this.tabPage2.Controls.Add(this.txtAddress);
+            this.tabPage2.Controls.Add(this.txtPhone);
+            this.tabPage2.Controls.Add(this.txtStuId);
+            this.tabPage2.Controls.Add(this.txtName);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.Btn_Edit);
+            this.tabPage2.Controls.Add(this.btnEdit);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -81,13 +81,14 @@
             this.tabPage2.Text = "修改.刪除";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Tb_num
+            // txtNum
             // 
-            this.Tb_num.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_num.Location = new System.Drawing.Point(224, 42);
-            this.Tb_num.Name = "Tb_num";
-            this.Tb_num.Size = new System.Drawing.Size(205, 33);
-            this.Tb_num.TabIndex = 20;
+            this.txtNum.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtNum.Location = new System.Drawing.Point(224, 42);
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(205, 33);
+            this.txtNum.TabIndex = 20;
+            this.txtNum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNum_KeyDown);
             // 
             // label5
             // 
@@ -99,47 +100,47 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "編號 :";
             // 
-            // Btn_Del
+            // btnDel
             // 
-            this.Btn_Del.Location = new System.Drawing.Point(337, 498);
-            this.Btn_Del.Name = "Btn_Del";
-            this.Btn_Del.Size = new System.Drawing.Size(92, 33);
-            this.Btn_Del.TabIndex = 18;
-            this.Btn_Del.Text = "刪除";
-            this.Btn_Del.UseVisualStyleBackColor = true;
-            this.Btn_Del.Click += new System.EventHandler(this.Btn_Del_Click);
+            this.btnDel.Location = new System.Drawing.Point(337, 498);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(92, 33);
+            this.btnDel.TabIndex = 18;
+            this.btnDel.Text = "刪除";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // Tb_Address
+            // txtAddress
             // 
-            this.Tb_Address.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Address.Location = new System.Drawing.Point(224, 398);
-            this.Tb_Address.Name = "Tb_Address";
-            this.Tb_Address.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Address.TabIndex = 17;
+            this.txtAddress.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtAddress.Location = new System.Drawing.Point(224, 398);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(205, 33);
+            this.txtAddress.TabIndex = 17;
             // 
-            // Tb_Phone
+            // txtPhone
             // 
-            this.Tb_Phone.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Phone.Location = new System.Drawing.Point(224, 311);
-            this.Tb_Phone.Name = "Tb_Phone";
-            this.Tb_Phone.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Phone.TabIndex = 16;
+            this.txtPhone.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtPhone.Location = new System.Drawing.Point(224, 311);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(205, 33);
+            this.txtPhone.TabIndex = 16;
             // 
-            // Tb_StuId
+            // txtStuId
             // 
-            this.Tb_StuId.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_StuId.Location = new System.Drawing.Point(224, 215);
-            this.Tb_StuId.Name = "Tb_StuId";
-            this.Tb_StuId.Size = new System.Drawing.Size(205, 33);
-            this.Tb_StuId.TabIndex = 15;
+            this.txtStuId.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtStuId.Location = new System.Drawing.Point(224, 215);
+            this.txtStuId.Name = "txtStuId";
+            this.txtStuId.Size = new System.Drawing.Size(205, 33);
+            this.txtStuId.TabIndex = 15;
             // 
-            // Tb_Name
+            // txtName
             // 
-            this.Tb_Name.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Name.Location = new System.Drawing.Point(224, 129);
-            this.Tb_Name.Name = "Tb_Name";
-            this.Tb_Name.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Name.TabIndex = 14;
+            this.txtName.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtName.Location = new System.Drawing.Point(224, 129);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(205, 33);
+            this.txtName.TabIndex = 14;
             // 
             // label4
             // 
@@ -181,22 +182,22 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "姓名 :";
             // 
-            // Btn_Edit
+            // btnEdit
             // 
-            this.Btn_Edit.Location = new System.Drawing.Point(183, 498);
-            this.Btn_Edit.Name = "Btn_Edit";
-            this.Btn_Edit.Size = new System.Drawing.Size(92, 33);
-            this.Btn_Edit.TabIndex = 9;
-            this.Btn_Edit.Text = "修改";
-            this.Btn_Edit.UseVisualStyleBackColor = true;
-            this.Btn_Edit.Click += new System.EventHandler(this.Btn_Edit_Click);
+            this.btnEdit.Location = new System.Drawing.Point(183, 498);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(92, 33);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "修改";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.Cb_Type);
-            this.tabPage1.Controls.Add(this.Tb_Search);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.btnOpen);
+            this.tabPage1.Controls.Add(this.chkType);
+            this.tabPage1.Controls.Add(this.txtSearch);
+            this.tabPage1.Controls.Add(this.dgResults);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -205,44 +206,44 @@
             this.tabPage1.Text = "搜尋.建立";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnOpen
             // 
-            this.button1.Font = new System.Drawing.Font("新細明體", 9F);
-            this.button1.Location = new System.Drawing.Point(499, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "建立";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOpen.Font = new System.Drawing.Font("新細明體", 9F);
+            this.btnOpen.Location = new System.Drawing.Point(499, 13);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 6;
+            this.btnOpen.Text = "建立";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // Cb_Type
+            // chkType
             // 
-            this.Cb_Type.FormattingEnabled = true;
-            this.Cb_Type.Location = new System.Drawing.Point(8, 15);
-            this.Cb_Type.Name = "Cb_Type";
-            this.Cb_Type.Size = new System.Drawing.Size(71, 25);
-            this.Cb_Type.TabIndex = 5;
+            this.chkType.FormattingEnabled = true;
+            this.chkType.Location = new System.Drawing.Point(8, 15);
+            this.chkType.Name = "chkType";
+            this.chkType.Size = new System.Drawing.Size(71, 25);
+            this.chkType.TabIndex = 5;
             // 
-            // Tb_Search
+            // txtSearch
             // 
-            this.Tb_Search.Location = new System.Drawing.Point(85, 13);
-            this.Tb_Search.Name = "Tb_Search";
-            this.Tb_Search.Size = new System.Drawing.Size(150, 28);
-            this.Tb_Search.TabIndex = 4;
-            this.Tb_Search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_Search_KeyDown);
+            this.txtSearch.Location = new System.Drawing.Point(85, 13);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(150, 28);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
-            // dataGridView1
+            // dgResults
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(620, 536);
-            this.dataGridView1.TabIndex = 0;
+            this.dgResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgResults.Location = new System.Drawing.Point(3, 50);
+            this.dgResults.Name = "dgResults";
+            this.dgResults.RowTemplate.Height = 24;
+            this.dgResults.Size = new System.Drawing.Size(620, 536);
+            this.dgResults.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -268,7 +269,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgResults)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -277,23 +278,23 @@
         #endregion
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button Btn_Del;
-        private System.Windows.Forms.TextBox Tb_Address;
-        private System.Windows.Forms.TextBox Tb_Phone;
-        private System.Windows.Forms.TextBox Tb_StuId;
-        private System.Windows.Forms.TextBox Tb_Name;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtStuId;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Btn_Edit;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox Cb_Type;
-        private System.Windows.Forms.TextBox Tb_Search;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.ComboBox chkType;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridView dgResults;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TextBox Tb_num;
+        private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.Label label5;
     }
 }

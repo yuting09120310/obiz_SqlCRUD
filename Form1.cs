@@ -35,9 +35,9 @@ namespace obiz_SqlCRUD
 
                 for (int i = 0; i < items.Length; i++)
                 {
-                    Cb_Type.Items.Add(items[i]);
+                    chkType.Items.Add(items[i]);
                 }
-                Cb_Type.SelectedIndex = 0;
+                chkType.SelectedIndex = 0;
 
                 Dgv_load();
             }catch(Exception ex)
@@ -47,11 +47,11 @@ namespace obiz_SqlCRUD
         }
 
         //按下新增後
-        private void button1_Click(object sender, EventArgs e)
+        private void btnOpen_Click(object sender, EventArgs e)
         {
             try
             {
-                Form2 form = new Form2(dataGridView1);
+                Form2 form = new Form2(dgResults);
                 form.Show();
             }catch(Exception ex)
             {
@@ -60,19 +60,19 @@ namespace obiz_SqlCRUD
         }
 
         //搜尋
-        private void Tb_Search_KeyDown(object sender, KeyEventArgs e)
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
                 try
                 {
-                    if (Cb_Type.Text.Length != 0)
+                    if (chkType.Text.Length != 0)
                     {
                         Dt = null;
-                        string SearchQuery = $"select * from StudentInfo where {Cb_Type.Text} like '%{Tb_Search.Text}%'";
+                        string SearchQuery = $"SELECT * FROM StudentInfo WHERE {chkType.Text} like '%{txtSearch.Text}%'";
                         Dt = SqlCRUD.SqlTable(SearchQuery);
 
-                        dataGridView1.DataSource = Dt;
+                        dgResults.DataSource = Dt;
                     }
                     else
                     {
@@ -90,10 +90,10 @@ namespace obiz_SqlCRUD
         {
             try
             {
-                string SearchQuery = "select * from StudentInfo";
+                string SearchQuery = "SELECT * FROM StudentInfo";
                 Dt = SqlCRUD.SqlTable(SearchQuery);
 
-                dataGridView1.DataSource = Dt;
+                dgResults.DataSource = Dt;
             }catch(Exception ex)
             {
                 msg_Log.save_log(AppName, ex);
@@ -101,17 +101,17 @@ namespace obiz_SqlCRUD
         }
 
         //刪除事件
-        private void Btn_Del_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Tb_num.Text.Length != 0)
+                if (txtNum.Text.Length != 0)
                 {
-                    string Select_Query = $"select * from StudentInfo where id = {Tb_num.Text}";
+                    string Select_Query = $"SELECT * FROM StudentInfo WHERE id = {txtNum.Text}";
                     DataTable dt = SqlCRUD.SqlTable(Select_Query);
                     if (dt.Rows.Count > 0)
                     {
-                        string Update_Query = $"Delete StudentInfo where Id = {Tb_num.Text}";
+                        string Update_Query = $"Delete StudentInfo WHERE Id = {txtNum.Text}";
                         new SqlCRUD(Update_Query);
                         Dgv_load();
                     }
@@ -122,17 +122,17 @@ namespace obiz_SqlCRUD
             }
         }
         //編輯
-        private void Btn_Edit_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Tb_num.Text.Length != 0)
+                if (txtNum.Text.Length != 0)
                 {
-                    string Select_Query = $"select * from StudentInfo where id = {Tb_num.Text}";
+                    string Select_Query = $"SELECT * FROM StudentInfo WHERE id = {txtNum.Text}";
                     DataTable dt = SqlCRUD.SqlTable(Select_Query);
                     if (dt.Rows.Count > 0)
                     {
-                        string Update_Query = $"UPDATE  StudentInfo SET Name={Tb_Name.Text},StuID={Tb_Search.Text},Phone={Tb_Phone.Text},Address={Tb_Address.Text} where Id = {Tb_num.Text}";
+                        string Update_Query = $"UPDATE  StudentInfo SET Name='{txtName.Text}',StuID='{txtStuId.Text}',Phone='{txtPhone.Text}',Address='{txtAddress.Text}' WHERE Id = '{txtNum.Text}'";
                         new SqlCRUD(Update_Query);
                         Dgv_load();
                     }
@@ -140,6 +140,25 @@ namespace obiz_SqlCRUD
             }catch(Exception ex)
             {
                 msg_Log.save_log(AppName, ex);
+            }
+        }
+
+        private void txtNum_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string Select_Query = $"SELECT * FROM StudentInfo WHERE ID = '{txtNum.Text}'";
+                DataTable dt = SqlCRUD.SqlTable(Select_Query);
+                if(dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("查無資料");
+                    return;
+                }
+                
+                txtName.Text = dt.Rows[0]["Name"].ToString();
+                txtStuId.Text = dt.Rows[0]["StuId"].ToString();
+                txtPhone.Text = dt.Rows[0]["Phone"].ToString();
+                txtAddress.Text = dt.Rows[0]["Address"].ToString();
             }
         }
     }

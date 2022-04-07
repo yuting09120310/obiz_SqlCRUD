@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Tb_Name = new System.Windows.Forms.TextBox();
-            this.Tb_StuId = new System.Windows.Forms.TextBox();
-            this.Tb_Phone = new System.Windows.Forms.TextBox();
-            this.Tb_Address = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtStuId = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(134, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "送出";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreate.Location = new System.Drawing.Point(134, 415);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(92, 33);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "送出";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // label1
             // 
@@ -89,52 +89,52 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "地址 :";
             // 
-            // Tb_Name
+            // txtName
             // 
-            this.Tb_Name.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Name.Location = new System.Drawing.Point(118, 44);
-            this.Tb_Name.Name = "Tb_Name";
-            this.Tb_Name.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Name.TabIndex = 5;
+            this.txtName.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtName.Location = new System.Drawing.Point(118, 44);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(205, 33);
+            this.txtName.TabIndex = 5;
             // 
-            // Tb_StuId
+            // txtStuId
             // 
-            this.Tb_StuId.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_StuId.Location = new System.Drawing.Point(118, 145);
-            this.Tb_StuId.Name = "Tb_StuId";
-            this.Tb_StuId.Size = new System.Drawing.Size(205, 33);
-            this.Tb_StuId.TabIndex = 6;
+            this.txtStuId.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtStuId.Location = new System.Drawing.Point(118, 145);
+            this.txtStuId.Name = "txtStuId";
+            this.txtStuId.Size = new System.Drawing.Size(205, 33);
+            this.txtStuId.TabIndex = 6;
             // 
-            // Tb_Phone
+            // txtPhone
             // 
-            this.Tb_Phone.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Phone.Location = new System.Drawing.Point(118, 241);
-            this.Tb_Phone.Name = "Tb_Phone";
-            this.Tb_Phone.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Phone.TabIndex = 7;
+            this.txtPhone.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtPhone.Location = new System.Drawing.Point(118, 241);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(205, 33);
+            this.txtPhone.TabIndex = 7;
             // 
-            // Tb_Address
+            // txtAddress
             // 
-            this.Tb_Address.Font = new System.Drawing.Font("新細明體", 15.75F);
-            this.Tb_Address.Location = new System.Drawing.Point(118, 328);
-            this.Tb_Address.Name = "Tb_Address";
-            this.Tb_Address.Size = new System.Drawing.Size(205, 33);
-            this.Tb_Address.TabIndex = 8;
+            this.txtAddress.Font = new System.Drawing.Font("新細明體", 15.75F);
+            this.txtAddress.Location = new System.Drawing.Point(118, 328);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(205, 33);
+            this.txtAddress.TabIndex = 8;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 472);
-            this.Controls.Add(this.Tb_Address);
-            this.Controls.Add(this.Tb_Phone);
-            this.Controls.Add(this.Tb_StuId);
-            this.Controls.Add(this.Tb_Name);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtStuId);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCreate);
             this.Name = "Form2";
             this.Text = "新增學生";
             this.ResumeLayout(false);
@@ -144,14 +144,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Tb_Name;
-        private System.Windows.Forms.TextBox Tb_StuId;
-        private System.Windows.Forms.TextBox Tb_Phone;
-        private System.Windows.Forms.TextBox Tb_Address;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtStuId;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }
